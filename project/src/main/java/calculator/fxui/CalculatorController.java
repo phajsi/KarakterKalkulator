@@ -1,8 +1,8 @@
 package calculator.fxui;
 
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
 
@@ -15,14 +15,13 @@ import calculator.fxui.TextFileIO;
 public class CalculatorController {
 	
 	@FXML Text snitt;
-	@FXML Button beregnBtn, lagreBtn;
+	@FXML Button beregnBtn, lagreBtn, slettBtn, hentHistorikkBtn;
 	@FXML TextField navn;
 	@FXML TextField kar1, kar2, kar3, kar4, kar5, kar6, kar7, kar8;
 	@FXML TextField fag1, fag2, fag3, fag4, fag5, fag6, fag7, fag8;	
+	@FXML TextArea historikk;
 	
-	//TextField[] gradeFields = {kar1, kar2, kar3, kar4, kar5, kar6, kar7, kar8};
-    
-    public void handleGrade(ActionEvent e){
+    public void handleGrade(){
 	  List<String> list = new ArrayList<String>();
 	  String var1 = kar1.getText();
 	  list.add(var1);
@@ -41,18 +40,45 @@ public class CalculatorController {
 	  String var8 = kar8.getText();
 	  list.add(var8);
 
-      beregnBtn.setOnAction(event -> {
-    	  double avg = CalculatorLogic.calculateAvg(list);
-    	  snitt.setText("Ditt snitt er: " + avg);
-      });
+      
+	  double avg = CalculatorLogic.calculateAvg(list);
+	  snitt.setText(String.valueOf(avg));
+
+   }
+    
+    public void handleShowHistory() {
+		String content = TextFileIO.read();
+		historikk.setText(content);
+    }
+    
+    public void handleClearHistory() {
+		TextFileIO.clear(false);
+		historikk.setText("");
     }
     
     public void handleSaveButton() {
-    	lagreBtn.setOnAction(event -> {
-    	String name = navn.getText();
-    	String str = snitt.getText();
-		TextFileIO.write(str, name);
-    	});
+		String name = navn.getText();
+		String snittStr = snitt.getText();
+		TextFileIO.write(name, snittStr);
+		snitt.setText("");
+		navn.setText("");
+		kar1.setText("");
+		kar2.setText("");
+		kar3.setText("");
+		kar4.setText("");
+		kar5.setText("");
+		kar6.setText("");
+		kar7.setText("");
+		kar8.setText("");
+		
+		fag1.setText("");
+		fag2.setText("");
+		fag3.setText("");
+		fag4.setText("");
+		fag5.setText("");
+		fag6.setText("");
+		fag7.setText("");
+		fag8.setText("");
     }
     
 

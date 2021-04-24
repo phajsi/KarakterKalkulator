@@ -1,6 +1,5 @@
 package calculator.model;
 
-import java.util.Arrays;
 import java.util.List;
 
 public class CalculatorLogic {
@@ -9,6 +8,8 @@ public class CalculatorLogic {
 	public static double calculateAvg(List<String> listGrades) {
 		double sum = 0.0;
 		int length = 0;
+		double avg;
+		double roundedAvg;
 		for (String grade : listGrades) {
 			if(grade.matches("^[A-E]")) {
 				double gradeDouble = convertGrade(grade);	
@@ -17,7 +18,9 @@ public class CalculatorLogic {
 			}
 			
 		}
-		return sum/length;
+		avg = sum/length;
+		roundedAvg = (double)Math.round(avg * 100d) / 100d;
+		return roundedAvg;
 	}
 	
 	private static double convertGrade(String grade) {
@@ -39,10 +42,4 @@ public class CalculatorLogic {
 		}
 	}
 	
-	public static void main(String[] args) {
-		String test = "876";
-		System.out.println(convertGrade(test));
-		List<String> list = Arrays.asList("A","A","C","Cbn","hjhvj");
-		System.out.println(calculateAvg(list));
-	}
 }
