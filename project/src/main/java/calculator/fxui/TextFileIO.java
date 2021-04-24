@@ -9,35 +9,39 @@ public class TextFileIO {
 	public static void write(String navn, String snitt) {
 		try {
 			BufferedWriter bw = new BufferedWriter(
-					new FileWriter("log/grades.txt"));
-			bw.write(navn + "\n");
-			bw.write(snitt  + "\n");
+					new FileWriter("log/grades.txt", true));
+	    	
+			bw.write(navn + ":" + snitt + "\n");
 			bw.close();
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}
-		
+		}		
 	}
 	
-	public void read() {
+	public static void clear(boolean clear) {
 		try {
-			BufferedReader br = new BufferedReader(
-					new FileReader("log/grades.txt"));
-			String s;
-			while((s = br.readLine()) != null) {
-				System.out.println(s);
+			BufferedWriter bw = new BufferedWriter(
+					new FileWriter("log/grades.txt", clear));
+			bw.close();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}		
+	}
+
+	public static String read() {
+		String info = "";
+		try {
+			BufferedReader br = new BufferedReader(new FileReader("log/grades.txt"));
+			int s;
+			while ((s = br.read()) != -1) {
+		        char character = (char) s;
+		        info += character;
 			}
 			br.close();
-		}catch (Exception e) {
+		}catch (IOException e) {
 			e.addSuppressed(e);
 		}
-	}
-	
-
-	public static void main(String[] args) {
-		TextFileIO file = new TextFileIO();
-		file.read();
+		return info;
 	}
 
 }
