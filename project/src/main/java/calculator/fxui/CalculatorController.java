@@ -20,21 +20,30 @@ public class CalculatorController {
 	@FXML TextField kar1, kar2, kar3, kar4, kar5, kar6, kar7, kar8;
 	@FXML TextField fag1, fag2, fag3, fag4, fag5, fag6, fag7, fag8;	
 	
-    public void handleField(ActionEvent e){
-//      field.setOnAction(event -> {
-//    	  nameList.setText(field.getText());
-//      });
-    }
+	//TextField[] gradeFields = {kar1, kar2, kar3, kar4, kar5, kar6, kar7, kar8};
     
     public void handleGrade(ActionEvent e){
- 	  
-  	  
+	  List<String> list = new ArrayList<String>();
+	  String var1 = kar1.getText();
+	  list.add(var1);
+	  String var2 = kar2.getText();
+	  list.add(var2);
+	  String var3 = kar3.getText();
+	  list.add(var3);
+	  String var4 = kar4.getText();
+	  list.add(var4);
+	  String var5 = kar5.getText();
+	  list.add(var5);
+	  String var6 = kar6.getText();
+	  list.add(var6);
+	  String var7 = kar7.getText();
+	  list.add(var7);
+	  String var8 = kar8.getText();
+	  list.add(var8);
+
       beregnBtn.setOnAction(event -> {
-    	  String grade = kar1.getText();
-    	  snitt.setText("Ditt snitt er: "+CalculatorLogic.convertGrade(grade));
-    	  System.out.println("button pressed");
-    	  System.out.println(CalculatorLogic.convertGrade(grade));
-    	  //System.out.println(kar1.);
+    	  double avg = CalculatorLogic.calculateAvg(list);
+    	  snitt.setText("Ditt snitt er: " + avg);
       });
     }
     
