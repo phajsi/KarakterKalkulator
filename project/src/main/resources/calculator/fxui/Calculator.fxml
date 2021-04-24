@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="calculator.fxui.CalculatorController">
+   <children>
+      <BorderPane prefHeight="423.0" prefWidth="682.0" style="-fx-padding: 20;">
+         <right>
+            <VBox prefHeight="296.0" prefWidth="69.0" BorderPane.alignment="CENTER">
+               <children>
+                  <Button fx:id="beregnBtn" onAction="#handleGrade" alignment="CENTER" mnemonicParsing="false" prefHeight="25.0" prefWidth="80.0" text="Beregn">
+                     <VBox.margin>
+                        <Insets left="10.0" />
+                     </VBox.margin>
+                  </Button>
+                  <Text lineSpacing="20.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Resultat" textAlignment="CENTER" underline="true" wrappingWidth="100.072265625">
+                     <VBox.margin>
+                        <Insets top="10.0" />
+                     </VBox.margin>
+                     <font>
+                        <Font name="Arial Bold" size="14.0" />
+                     </font>
+                  </Text>
+                  <Text fx:id="snitt" strokeType="OUTSIDE" strokeWidth="0.0" text="text" textAlignment="CENTER" wrappingWidth="100.13671875">
+                     <VBox.margin>
+                        <Insets top="10.0" />
+                     </VBox.margin>
+                  </Text>
+               </children>
+            </VBox>
+         </right>
+         <top>
+            <VBox prefHeight="69.0" prefWidth="658.0" BorderPane.alignment="CENTER">
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Karakterkalkulator" textAlignment="CENTER" wrappingWidth="681.13671875">
+                     <font>
+                        <Font name="DIN Alternate Bold" size="24.0" />
+                     </font>
+                  </Text>
+                  <TextField fx:id="navn" prefHeight="25.0" prefWidth="449.0" promptText="Legg til navn">
+                     <VBox.margin>
+                        <Insets left="200.0" right="200.0" top="10.0" />
+                     </VBox.margin>
+                  </TextField>
+                  <Button fx:id="lagreBtn" mnemonicParsing="false" prefHeight="30.0" prefWidth="100.0" text="Lagre" VBox.vgrow="SOMETIMES">
+                     <VBox.margin>
+                        <Insets bottom="10.0" left="300.0" right="200.0" top="10.0" />
+                     </VBox.margin>
+                  </Button>
+               </children>
+            </VBox>
+         </top>
+         <center>
+            <GridPane BorderPane.alignment="CENTER">
+              <columnConstraints>
+                  <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="200.0" minWidth="5.0" prefWidth="200.0" />
+                  <ColumnConstraints fillWidth="false" halignment="CENTER" hgrow="SOMETIMES" maxWidth="524.0" minWidth="10.0" prefWidth="381.0" />
+                <ColumnConstraints fillWidth="false" halignment="CENTER" hgrow="SOMETIMES" maxWidth="524.0" minWidth="10.0" prefWidth="381.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Karakter" wrappingWidth="64.822265625" GridPane.columnIndex="2">
+                     <font>
+                        <Font name="Arial Bold" size="14.0" />
+                     </font>
+                  </Text>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="1" GridPane.rowIndex="1" />
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="2" GridPane.rowIndex="2" />
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="3" GridPane.rowIndex="3" />
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="4" GridPane.rowIndex="4" />
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="5" GridPane.rowIndex="5" />
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="6" GridPane.rowIndex="6" />
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="7" GridPane.rowIndex="7" />
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="8" GridPane.rowIndex="8" />
+                  <TextField fx:id="kar1" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                  <TextField fx:id="kar2" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                  <TextField fx:id="kar4" GridPane.columnIndex="2" GridPane.rowIndex="4" />
+                  <TextField fx:id="kar3" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+                  <TextField fx:id="kar8" GridPane.columnIndex="2" GridPane.rowIndex="8" />
+                  <TextField fx:id="kar7" GridPane.columnIndex="2" GridPane.rowIndex="7" />
+                  <TextField fx:id="kar6" GridPane.columnIndex="2" GridPane.rowIndex="6" />
+                  <TextField fx:id="kar5" GridPane.columnIndex="2" GridPane.rowIndex="5" />
+                  <TextField GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                  <TextField GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                  <TextField GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                  <TextField GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                  <TextField GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                  <TextField GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                  <TextField GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                  <TextField fx:id="fag1" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                  <TextField fx:id="fag2" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                  <TextField fx:id="fag3" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                  <TextField fx:id="fag4" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                  <TextField fx:id="fag5" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                  <TextField fx:id="fag6" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+                  <TextField fx:id="fag7" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+                  <TextField fx:id="fag8" GridPane.columnIndex="1" GridPane.rowIndex="8" />
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Fag" textAlignment="CENTER" wrappingWidth="64.822265625" GridPane.columnIndex="1">
+                     <font>
+                        <Font name="Arial Bold" size="14.0" />
+                     </font>
+                  </Text>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Fag #" textAlignment="CENTER" wrappingWidth="64.822265625">
+                     <font>
+                        <Font name="Arial Bold" size="14.0" />
+                     </font>
+                  </Text>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Fag #" textAlignment="CENTER" wrappingWidth="64.822265625">
+                     <font>
+                        <Font name="Arial Bold" size="14.0" />
+                     </font>
+                  </Text>
+               </children>
+            </GridPane>
+         </center>
+      </BorderPane>
+   </children>
+</AnchorPane>
