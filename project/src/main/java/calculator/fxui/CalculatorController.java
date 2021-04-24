@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import calculator.model.CalculatorLogic;
+import calculator.fxui.TextFileIO;
 
 public class CalculatorController {
 	
@@ -36,5 +37,14 @@ public class CalculatorController {
     	  //System.out.println(kar1.);
       });
     }
+    
+    public void handleSaveButton() {
+    	lagreBtn.setOnAction(event -> {
+    	String name = navn.getText();
+    	String str = snitt.getText();
+		TextFileIO.write(str, name);
+    	});
+    }
+    
 
 }
