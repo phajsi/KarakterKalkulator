@@ -20,7 +20,7 @@ public class CalculatorLogic {
 		return sum/length;
 	}
 	
-	public static double convertGrade(String grade) {
+	private static double convertGrade(String grade) {
 		switch(grade){
 		case "A": 
 			return 5.0;
