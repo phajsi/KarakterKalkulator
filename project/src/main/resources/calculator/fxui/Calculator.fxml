@@ -52,7 +52,7 @@
                         <Insets left="200.0" right="200.0" top="10.0" />
                      </VBox.margin>
                   </TextField>
-                  <Button fx:id="lagreBtn" mnemonicParsing="false" prefHeight="30.0" prefWidth="100.0" text="Lagre" VBox.vgrow="SOMETIMES">
+                  <Button fx:id="lagreBtn" onAction="#handleSaveButton" mnemonicParsing="false" prefHeight="30.0" prefWidth="100.0" text="Lagre" VBox.vgrow="SOMETIMES">
                      <VBox.margin>
                         <Insets bottom="10.0" left="300.0" right="200.0" top="10.0" />
                      </VBox.margin>
