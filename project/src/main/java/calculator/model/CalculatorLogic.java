@@ -4,22 +4,27 @@ import java.util.List;
 
 public class CalculatorLogic {
 
-	public double calculateAvg(List<String> listGrades) {
+	public double calculateAvg(List<String> listGrades) throws Exception {
 		double sum = 0.0;
 		int length = 0;
 		double avg;
 		double roundedAvg;
 		for (String grade : listGrades) {
-			if(grade.matches("^[A-E]")) {
+			if(!grade.matches("^$|[A-F]")) {
+				throw new Exception("Karakteren er ikke gyldig");
+			}else {
 				double gradeDouble = convertGrade(grade);	
 				sum += gradeDouble;
-				length++;
+				if (grade!="F" && grade!="") {
+					length++;
+				}
 			}
 			
 		}
 		avg = sum/length;
 		roundedAvg = (double)Math.round(avg * 100d) / 100d;
 		return roundedAvg;
+
 	}
 	
 	private double convertGrade(String grade) {
@@ -36,8 +41,10 @@ public class CalculatorLogic {
 			return 1.0;
 		case "F": 
 			return 0.0;
+		case "":
+			return 0.0;
 		default: 
-			throw new IllegalArgumentException("String not valid");
+			throw new IllegalArgumentException("Karakteren er ikke gyldig");
 		}
 	}
 	
