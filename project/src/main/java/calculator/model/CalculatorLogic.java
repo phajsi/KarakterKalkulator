@@ -15,7 +15,7 @@ public class CalculatorLogic {
 			}else {
 				double gradeDouble = convertGrade(grade);	
 				sum += gradeDouble;
-				if (grade!="F" && grade!="") {
+				if (!grade.matches("^$|[F]")) {
 					length++;
 				}
 			}
