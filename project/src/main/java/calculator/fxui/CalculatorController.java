@@ -1,6 +1,8 @@
 package calculator.fxui;
 
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
@@ -10,7 +12,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import calculator.model.Calculator;
-import calculator.model.CalculatorLogic;
 import calculator.fxui.TextFileIO;
 
 public class CalculatorController {
@@ -25,7 +26,7 @@ public class CalculatorController {
 	Calculator calc = new Calculator();
 	TextFileIO file = new TextFileIO();
 	
-	private void retrieveGrades() {
+	private void retrieveGrades() {	  
 	  List<String> list = new ArrayList<String>();
 	  list.add(kar1.getText());
 	  list.add(kar2.getText());
@@ -35,6 +36,16 @@ public class CalculatorController {
 	  list.add(kar6.getText());
 	  list.add(kar7.getText());
 	  list.add(kar8.getText());
+	  
+
+	  Alert errorAlert = new Alert(AlertType.ERROR);
+	  errorAlert.setContentText("Karakterene må være store bokstaver mellom A-F");
+	  for (String grade : list) {
+		  if(!grade.matches("^[A-E]")) {
+			  errorAlert.show();
+			  throw new IllegalArgumentException("Karakteren "+ grade +" er ikke akseptert");
+		  }
+	}
 	  calc.setListGrades(list);
 	}
 	
