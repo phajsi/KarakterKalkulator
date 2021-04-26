@@ -12,7 +12,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import calculator.model.Calculator;
-import calculator.fxui.TextFileIO;
 
 public class CalculatorController {
 	
@@ -24,7 +23,7 @@ public class CalculatorController {
 	@FXML TextArea historikk;
 	
 	Calculator calc = new Calculator();
-	TextFileIO file = new TextFileIO();
+	TextFileSupport file = new TextFileSupport();
 	
 	private void retrieveGrades() {	  
 	  List<String> list = new ArrayList<String>();
