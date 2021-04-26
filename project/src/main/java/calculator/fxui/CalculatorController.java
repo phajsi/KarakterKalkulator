@@ -48,7 +48,7 @@ public class CalculatorController {
 	  calc.setListGrades(list);
 	}
 	
-    public void handleGrade(){
+    public void handleGrade() throws Exception{
       retrieveGrades();
 	  calc.setAverage(calc.calculateAvg(calc.getListGrades()));
 	  snitt.setText(String.valueOf(calc.getAverage()));
