@@ -15,7 +15,7 @@ public class TextFileSupport implements ITextFileIO{
 				BufferedWriter bw = new BufferedWriter(
 						new FileWriter("log/grades.txt", true));
 		    	
-				bw.write(navn + ":" + snitt + "\n");
+				bw.write(navn + ": " + snitt + "\n");
 				bw.close();
 			} catch (IOException e) {
 				e.printStackTrace();
