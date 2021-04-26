@@ -4,8 +4,7 @@ import java.util.List;
 
 public class CalculatorLogic {
 
-	
-	public static double calculateAvg(List<String> listGrades) {
+	public double calculateAvg(List<String> listGrades) {
 		double sum = 0.0;
 		int length = 0;
 		double avg;
@@ -23,7 +22,7 @@ public class CalculatorLogic {
 		return roundedAvg;
 	}
 	
-	private static double convertGrade(String grade) {
+	private double convertGrade(String grade) {
 		switch(grade){
 		case "A": 
 			return 5.0;

@@ -6,7 +6,7 @@ import java.io.*;
 public class TextFileIO {
 	
 	
-	public static void write(String navn, String snitt) {
+	public void write(String navn, String snitt) {
 		try {
 			BufferedWriter bw = new BufferedWriter(
 					new FileWriter("log/grades.txt", true));
@@ -18,7 +18,7 @@ public class TextFileIO {
 		}		
 	}
 	
-	public static void clear(boolean clear) {
+	public void clear(boolean clear) {
 		try {
 			BufferedWriter bw = new BufferedWriter(
 					new FileWriter("log/grades.txt", clear));
@@ -28,7 +28,7 @@ public class TextFileIO {
 		}		
 	}
 
-	public static String read() {
+	public String read() {
 		String info = "";
 		try {
 			BufferedReader br = new BufferedReader(new FileReader("log/grades.txt"));
