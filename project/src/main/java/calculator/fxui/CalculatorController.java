@@ -9,6 +9,7 @@ import javafx.scene.text.Text;
 import java.util.ArrayList;
 import java.util.List;
 
+import calculator.model.Calculator;
 import calculator.model.CalculatorLogic;
 import calculator.fxui.TextFileIO;
 
@@ -21,46 +22,40 @@ public class CalculatorController {
 	@FXML TextField fag1, fag2, fag3, fag4, fag5, fag6, fag7, fag8;	
 	@FXML TextArea historikk;
 	
-    public void handleGrade(){
+	Calculator calc = new Calculator();
+	TextFileIO file = new TextFileIO();
+	
+	private void retrieveGrades() {
 	  List<String> list = new ArrayList<String>();
-	  String var1 = kar1.getText();
-	  list.add(var1);
-	  String var2 = kar2.getText();
-	  list.add(var2);
-	  String var3 = kar3.getText();
-	  list.add(var3);
-	  String var4 = kar4.getText();
-	  list.add(var4);
-	  String var5 = kar5.getText();
-	  list.add(var5);
-	  String var6 = kar6.getText();
-	  list.add(var6);
-	  String var7 = kar7.getText();
-	  list.add(var7);
-	  String var8 = kar8.getText();
-	  list.add(var8);
-
-      
-	  double avg = CalculatorLogic.calculateAvg(list);
-	  snitt.setText(String.valueOf(avg));
-
+	  list.add(kar1.getText());
+	  list.add(kar2.getText());
+	  list.add(kar3.getText());
+	  list.add(kar4.getText());
+	  list.add(kar5.getText());
+	  list.add(kar6.getText());
+	  list.add(kar7.getText());
+	  list.add(kar8.getText());
+	  calc.setListGrades(list);
+	}
+	
+    public void handleGrade(){
+      retrieveGrades();
+	  calc.setAverage(calc.calculateAvg(calc.getListGrades()));
+	  snitt.setText(String.valueOf(calc.getAverage()));
    }
     
     public void handleShowHistory() {
-		String content = TextFileIO.read();
+		String content = file.read();
 		historikk.setText(content);
     }
     
     public void handleClearHistory() {
-		TextFileIO.clear(false);
+		file.clear(false);
 		historikk.setText("");
     }
     
-    public void handleSaveButton() {
-		String name = navn.getText();
-		String snittStr = snitt.getText();
-		TextFileIO.write(name, snittStr);
-		snitt.setText("");
+    private void clearFields() {
+    	snitt.setText("");
 		navn.setText("");
 		kar1.setText("");
 		kar2.setText("");
@@ -81,5 +76,10 @@ public class CalculatorController {
 		fag8.setText("");
     }
     
-
+    public void handleSaveButton() {
+		String name = navn.getText();
+		String snittStr = snitt.getText();
+		file.write(name, snittStr);
+		clearFields();		
+    } 
 }
