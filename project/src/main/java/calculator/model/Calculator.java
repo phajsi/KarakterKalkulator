@@ -33,5 +33,4 @@ public class Calculator extends CalculatorLogic {
 	public void setAverage(double average) {
 		this.average = average;
 	}
-
 }
