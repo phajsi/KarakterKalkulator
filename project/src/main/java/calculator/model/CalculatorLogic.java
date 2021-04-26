@@ -37,7 +37,7 @@ public class CalculatorLogic {
 		case "F": 
 			return 0.0;
 		default: 
-			return 0.0;
+			throw new IllegalArgumentException("String not valid");
 		}
 	}
 	
