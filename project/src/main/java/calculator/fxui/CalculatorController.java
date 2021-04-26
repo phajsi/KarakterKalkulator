@@ -40,7 +40,7 @@ public class CalculatorController {
 	  Alert errorAlert = new Alert(AlertType.ERROR);
 	  errorAlert.setContentText("Karakterene må være store bokstaver mellom A-F");
 	  for (String grade : list) {
-		  if(!grade.matches("^$|[A-E]")) {
+		  if(!grade.matches("^$|[A-F]")) {
 			  errorAlert.show();
 			  throw new IllegalArgumentException("Karakteren "+ grade +" er ikke akseptert");
 		  }

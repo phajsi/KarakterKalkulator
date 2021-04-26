@@ -78,8 +78,8 @@ public class CalculatorLogicTest {
 		assertEquals("Karakteren er ikke gyldig", exception.getMessage() );
 		
 		List<String> list6 = new ArrayList<>(Arrays.asList("5", "3","3", "5", "", ""));
-		Throwable exception1 = assertThrows(Exception.class, () -> calc.calculateAvg(list5));
+		Throwable exception1 = assertThrows(Exception.class, () -> calc.calculateAvg(list6));
 		assertEquals("Karakteren er ikke gyldig", exception1.getMessage() );
 	}
-
+	
 }
